@@ -1,4 +1,4 @@
-## makeCachMatrix creates a special matrix that can  
+##makeCachMatrix creates a special matrix that can  
 ##set and get the value of the matrix and of the inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
