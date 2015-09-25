@@ -3,15 +3,15 @@
 
 makeCacheMatrix <- function(x = matrix()) {
 ##It stores the cached value, initialize to NULL, and set the value of matrix
-        Inv<- NULL
+        c<- NULL
         set <- function (y){
         x<<- y
-        Inv<<- NULL
+        c<<- NULL
         }
 ##It gets the value of matrix, set inverse the matrix , and get the value of the inverse.
 get <-function()x
-setinverse <-function (inverse)Inv <<-inverse
-getinverse <-function()Inv
+setinverse <-function (inverse)c <<-inverse
+getinverse <-function()c
 list(set=set, get=get,setinverse=setinverse,getinverse=getinverse)
 }
 
@@ -19,13 +19,13 @@ list(set=set, get=get,setinverse=setinverse,getinverse=getinverse)
 cacheSolve <- function(x, ...) {
 ##It checks if the inverse has already been calculated.
 ## If it has, fucntion gets the result and skips the computation.     
-Inv <- x$getinverse()
-if(!is.null(Inv)){
+c <- x$getinverse()
+if(!is.null(c)){
         message("getting cashed data")
-                return(Inv)
+                return(c)
 } ## If it hasn`t, function computes the inverse and sets the value. 
 data<-x$get()
-Inv<-solve (data,...)
-x$setinverse(Inv)
-Inv
+c<-solve (data,...)
+x$setinverse(c)
+c
 }
